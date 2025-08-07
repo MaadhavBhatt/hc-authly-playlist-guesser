@@ -16,6 +16,8 @@ export default {
 <style>
 :root {
   font-size: 10px;
+
+  --width: min(80%, 600px);
 }
 
 * {
@@ -27,8 +29,21 @@ export default {
 #app {
   width: 100%;
   min-height: 100vh;
-  display: grid;
-  place-items: center;
   background-color: #8c91a5;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4rem;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 1rem;
+
+  margin: 0 auto;
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
-  <div class="login">
+  <section class="login">
     <h1>Guess the playlist to enter</h1>
     <p>Some cool subtitle</p>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -13,8 +13,7 @@ export default {
 
 <style scoped>
 .login {
-  width: min(80%, 600px);
-  margin: 0 auto;
+  width: var(--width);
   padding: 2rem;
   background-color: #333;
   box-shadow: 1rem 1rem 0 rgba(255, 255, 255, 0.7);

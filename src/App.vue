@@ -16,8 +16,6 @@ export default {
 <style>
 :root {
   font-size: 10px;
-
-  --width: min(80%, 600px);
 }
 
 * {
@@ -44,6 +42,31 @@ section {
   justify-content: center;
   gap: 1rem;
 
+  width: min(80%, 600px);
   margin: 0 auto;
+  padding: 2rem;
+
+  box-shadow: 1rem 1rem 0 rgba(255, 255, 255, 0.7);
+
+  & h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #f0f0f0;
+  }
+
+  & h2 {
+    font-size: 2rem;
+  }
+
+  & h3 {
+    font-size: 1.8rem;
+    color: #f0f0f0;
+    font-weight: 500;
+  }
+
+  & p {
+    font-size: 1.6rem;
+    color: #eee;
+  }
 }
 </style>

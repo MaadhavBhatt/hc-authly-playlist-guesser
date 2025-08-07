@@ -1,7 +1,7 @@
 <template>
   <section class="login">
     <h1>Guess the playlist to enter</h1>
-    <p>Some cool subtitle</p>
+    <p class="subtitle">Some cool subtitle</p>
   </section>
 </template>
 

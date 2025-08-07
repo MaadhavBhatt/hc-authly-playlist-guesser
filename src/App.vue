@@ -65,8 +65,12 @@ section {
   }
 
   & p {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     color: #eee;
+  }
+
+  & p.subtitle {
+    font-size: 1.6rem;
   }
 }
 </style>

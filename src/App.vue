@@ -1,15 +1,50 @@
 <template>
   <div id="app">
     <LoginCard />
+    <QueueCard :songs="songs" />
   </div>
 </template>
 
 <script>
 import LoginCard from './components/LoginCard.vue'
+import QueueCard from './components/QueueCard.vue'
 
 export default {
   name: 'App',
-  components: { LoginCard },
+  components: { LoginCard, QueueCard },
+  data() {
+    return {
+      songs: [
+        {
+          title: 'Shake It Off',
+          artist: ['Taylor Swift'],
+          album: '1989',
+          year: 2014,
+          genre: 'Pop',
+          duration: '3:39',
+          cover: 'https://placehold.co/50'
+        },
+        {
+          title: 'Run (feat. Ed Sheeran)',
+          artist: ['Taylor Swift', 'Ed Sheeran'],
+          album: 'Red',
+          year: 2021,
+          genre: 'Pop',
+          duration: '3:42',
+          cover: 'https://placehold.co/50'
+        },
+        {
+          title: 'Blank Space',
+          artist: ['Taylor Swift'],
+          album: '1989',
+          year: 2014,
+          genre: 'Pop',
+          duration: '3:51',
+          cover: 'https://placehold.co/50'
+        }
+      ]
+    }
+  }
 }
 </script>
 

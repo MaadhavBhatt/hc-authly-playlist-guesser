@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <LoginCard />
-    <QueueCard :songs="songs" />
+    <QueueCard :songs="songs" @update:songs="updateSongs" />
   </div>
 </template>
 
@@ -43,6 +43,11 @@ export default {
           cover: 'https://placehold.co/50'
         }
       ]
+    }
+  },
+  methods: {
+    updateSongs(newSongs) {
+      this.songs = newSongs;
     }
   }
 }

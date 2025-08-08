@@ -1,25 +1,44 @@
 <template>
   <section class="queue-card" theme="dark">
-    <ul>
-      <li v-for="(song, index) in songs" :key="index">
-        <img :src="song.cover" alt="Album cover" />
-        <div class="song-details">
-          <h3>{{ song.title }}</h3>
-          <p>{{ song.artist.join(', ') }} - {{ song.album }} ({{ song.year }})</p>
-          <span>{{ song.duration }}</span>
-        </div>
-      </li>
-    </ul>
+    <draggable v-model="localSongs" tag="ul" item-key="title" class="song-list" ghost-class="ghost"
+      chosen-class="chosen">
+      <template #item="{ element }">
+        <li class="song-item">
+          <div class="drag-handle">⋮⋮</div>
+          <img :src="element.cover" :alt="`Album cover of ${element.title}`" />
+          <div class="song-details">
+            <h3>{{ element.title }}</h3>
+            <p>{{ element.artist.join(', ') }} - {{ element.album }} ({{ element.year }})</p>
+            <span>{{ element.duration }}</span>
+          </div>
+        </li>
+      </template>
+    </draggable>
   </section>
 </template>
 
 <script>
+import draggable from 'vuedraggable';
+
 export default {
   name: 'QueueCard',
+  components: {
+    draggable
+  },
   props: {
     songs: {
       type: Array,
       required: true
+    }
+  },
+  computed: {
+    localSongs: {
+      get() {
+        return this.songs;
+      },
+      set(value) {
+        this.$emit('update:songs', value);
+      }
     }
   }
 }
@@ -70,5 +89,21 @@ export default {
     margin: 0;
     font-size: 1.6rem;
   }
+}
+
+.drag-handle {
+  color: var(--clr-primary-2);
+  font-size: 1.4rem;
+  cursor: grab;
+  user-select: none;
+}
+
+/* You can add background colors to .ghost and .chosen for more effects. */
+.ghost {
+  opacity: 0;
+}
+
+.chosen {
+  opacity: 0.7;
 }
 </style>

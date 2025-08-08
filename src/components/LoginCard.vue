@@ -1,5 +1,5 @@
 <template>
-  <section class="login">
+  <section class="login" theme="light">
     <h1>Guess the playlist to enter</h1>
     <p class="subtitle">Some cool subtitle</p>
   </section>
@@ -13,6 +13,6 @@ export default {
 
 <style scoped>
 .login {
-  background-color: #333;
+  background-color: var(--clr-primary-2);
 }
 </style>

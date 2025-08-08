@@ -51,6 +51,11 @@ export default {
 <style>
 :root {
   font-size: 10px;
+
+  --clr-black: rgb(51, 51, 51);
+  --clr-primary-1: rgba(0, 61, 77, 0.3);
+  --clr-primary-2: hsla(297, 50%, 80%, 1);
+  --clr-accent: rgba(136, 63, 89, 0.53);
 }
 
 * {
@@ -62,7 +67,7 @@ export default {
 #app {
   width: 100%;
   min-height: 100vh;
-  background-color: #8c91a5;
+  background-color: #222;
 
   display: flex;
   flex-direction: column;
@@ -79,29 +84,47 @@ section {
 
   width: min(80%, 600px);
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 3rem;
 
-  box-shadow: 1rem 1rem 0 rgba(255, 255, 255, 0.7);
+  box-shadow: var(--box-shadow, initial);
+
+  &[theme="light"] {
+    --clr-h1: #222;
+    --clr-h2: #222;
+    --clr-h3: #222;
+    --clr-p: #222;
+    --box-shadow: 1rem 1rem 0 rgba(255, 255, 255, 0.4);
+  }
+
+  &[theme="dark"] {
+    --clr-h1: #f0f0f0;
+    --clr-h2: #f0f0f0;
+    --clr-h3: #f0f0f0;
+    --clr-p: #eee;
+    --box-shadow: 1rem 1rem 0 rgba(255, 255, 255, 0.7);
+  }
 
   & h1 {
     font-size: 3rem;
     font-weight: 700;
-    color: #f0f0f0;
+    color: var(--clr-h1);
   }
 
   & h2 {
     font-size: 2rem;
+    color: var(--clr-h2);
   }
 
   & h3 {
     font-size: 1.8rem;
-    color: #f0f0f0;
     font-weight: 500;
+    color: var(--clr-h3);
   }
 
-  & p {
+  & p,
+  & span {
     font-size: 1.2rem;
-    color: #eee;
+    color: var(--clr-p);
   }
 
   & p.subtitle {

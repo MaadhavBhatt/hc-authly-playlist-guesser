@@ -1,5 +1,5 @@
 <template>
-  <section class="queue-card">
+  <section class="queue-card" theme="dark">
     <ul>
       <li v-for="(song, index) in songs" :key="index">
         <img :src="song.cover" alt="Album cover" />
@@ -27,16 +27,15 @@ export default {
 
 <style scoped>
 .queue-card {
-  background-color: #444;
-  color: #fff;
+  background-color: var(--clr-black);
+
+  /* Override default padding from section in App.vue */
+  padding: 2rem 2rem;
 
   & ul {
     list-style: none;
     padding: 0;
-
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    width: 100%;
   }
 
   & li {
@@ -45,7 +44,16 @@ export default {
     align-items: center;
     gap: 1rem;
 
+    padding: 1rem 1rem;
+
     cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  & li:hover,
+  & li:focus {
+    background-color: #444;
+    transition: background-color 0.2s;
   }
 
   & img {

@@ -88,7 +88,7 @@ export default {
 #app {
   width: 100%;
   min-height: 100vh;
-  background-color: #222;
+  background: linear-gradient(to bottom, #111, #333);
 
   display: flex;
   flex-direction: column;

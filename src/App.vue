@@ -16,6 +16,7 @@ export default {
     return {
       songs: [
         {
+          id: 1,
           title: 'Shake It Off',
           artist: ['Taylor Swift'],
           album: '1989',
@@ -25,6 +26,7 @@ export default {
           cover: 'https://placehold.co/50'
         },
         {
+          id: 2,
           title: 'Run (feat. Ed Sheeran)',
           artist: ['Taylor Swift', 'Ed Sheeran'],
           album: 'Red',
@@ -34,6 +36,7 @@ export default {
           cover: 'https://placehold.co/50'
         },
         {
+          id: 3,
           title: 'Blank Space',
           artist: ['Taylor Swift'],
           album: '1989',
@@ -43,6 +46,19 @@ export default {
           cover: 'https://placehold.co/50'
         }
       ]
+    }
+  },
+  computed: {
+    unlocked() {
+      let previousId = -1;
+      return !this.songs.some(element => {
+        if (element.id <= previousId) {
+          return true; // Found an out-of-order song
+        }
+        previousId = element.id;
+        console.log('Current song ID:', element.id);
+        return false;
+      });
     }
   },
   methods: {

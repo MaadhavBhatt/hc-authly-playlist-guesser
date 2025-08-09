@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <LoginCard />
+  <div id="app" :class="{ unlocked }">
+    <LoginCard :unlocked="unlocked" />
     <QueueCard :songs="songs" @update:songs="updateSongs" />
   </div>
 </template>
@@ -73,10 +73,14 @@ export default {
 :root {
   font-size: 10px;
 
-  --clr-black: rgb(51, 51, 51);
-  --clr-primary-1: rgba(0, 61, 77, 0.3);
-  --clr-primary-2: hsla(297, 50%, 80%, 1);
-  --clr-accent: rgba(136, 63, 89, 0.53);
+  /* Higher numbers correspond to brighter shades */
+  --clr-black-1: #222;
+  --clr-black-2: #333;
+  --clr-white-1: #eee;
+  --clr-white-2: #f0f0f0;
+  --clr-primary-1: hsla(192, 100%, 15%, 0.3);
+  --clr-primary-2: hsla(297, 50%, 90%, 1);
+  --clr-accent: hsla(339, 37%, 60%, 0.9);
 }
 
 * {
@@ -88,12 +92,17 @@ export default {
 #app {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(to bottom, #111, #333);
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 4rem;
+
+  background: linear-gradient(to bottom, #111, #333);
+
+  &.unlocked {
+    background: linear-gradient(to bottom, var(--clr-accent), var(--clr-primary-2));
+  }
 }
 
 section {
@@ -107,21 +116,24 @@ section {
   margin: 0 auto;
   padding: 2rem 3rem;
 
+  background-color: var(--bg-clr, var(--clr-black-1));
   box-shadow: var(--box-shadow, initial);
 
   &[theme="light"] {
-    --clr-h1: #222;
-    --clr-h2: #222;
-    --clr-h3: #222;
-    --clr-p: #222;
+    --clr-h1: var(--clr-black-1);
+    --clr-h2: var(--clr-black-1);
+    --clr-h3: var(--clr-black-1);
+    --clr-p: var(--clr-black-1);
+    --bg-clr: var(--clr-primary-2);
     --box-shadow: 1rem 1rem 0 rgba(255, 255, 255, 0.4);
   }
 
   &[theme="dark"] {
-    --clr-h1: #f0f0f0;
-    --clr-h2: #f0f0f0;
-    --clr-h3: #f0f0f0;
-    --clr-p: #eee;
+    --clr-h1: var(--clr-white-2);
+    --clr-h2: var(--clr-white-2);
+    --clr-h3: var(--clr-white-2);
+    --clr-p: var(--clr-white-1);
+    --bg-clr: var(--clr-black-2);
     --box-shadow: 1rem 1rem 0 rgba(255, 255, 255, 0.7);
   }
 

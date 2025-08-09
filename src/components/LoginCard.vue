@@ -1,5 +1,5 @@
 <template>
-  <section class="login" theme="light">
+  <section class="login" :theme="unlocked ? 'dark' : 'light'">
     <h1>Guess the playlist to enter</h1>
     <p class="subtitle">Some cool subtitle</p>
   </section>
@@ -7,12 +7,12 @@
 
 <script>
 export default {
-  name: 'LoginCard'
+  name: 'LoginCard',
+  props: {
+    unlocked: {
+      type: Boolean,
+      default: false
+    }
+  }
 }
 </script>
-
-<style scoped>
-.login {
-  background-color: var(--clr-primary-2);
-}
-</style>

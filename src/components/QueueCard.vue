@@ -46,8 +46,6 @@ export default {
 
 <style scoped>
 .queue-card {
-  background-color: var(--clr-black);
-
   /* Override default padding from section in App.vue */
   padding: 2rem 2rem;
 
